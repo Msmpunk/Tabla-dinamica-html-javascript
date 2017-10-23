@@ -1,0 +1,40 @@
+body{
+	background: #b38c7e;
+}
+
+.container-div{
+	width: 500px;
+	margin: auto;
+	margin-top: 10em;
+	text-align: center;
+}
+.contenedor-form{
+	width: 500px;
+	margin: auto;
+	padding: 1em;
+	margin-top: 3em;
+	background: #ddd;
+	border-radius: 5px
+}
+
+.btn-show{
+	margin: auto;
+	display: block;
+}
+.btn-option{
+	margin: auto;
+	width: 30%
+}
+
+
+.contenedor-table
+{
+	/*color:white;*/
+	width: 700px;
+	margin: auto;
+	padding: 1em;
+	margin-top: 2em;
+	background: #ddd;
+	border-radius: 2px;
+	text-align: center;
+}
