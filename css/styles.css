@@ -23,8 +23,17 @@ body{
 }
 .btn-option{
 	margin: auto;
-	width: 30%
+	/*width: 30%*/
+	/*background: green;*/
 }
+.btn-edit{
+	background: green;
+	margin-right: 5px;
+}
+.btn-delete{
+	background: red;
+}
+
 
 
 .contenedor-table
