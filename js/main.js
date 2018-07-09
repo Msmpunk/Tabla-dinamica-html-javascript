@@ -39,9 +39,8 @@ function newGame() {
 
   const elementExist = existElment(gameData);
 
-  console.log(elementExist);
-  if (!elementExist) {
-    return alert('El numero ya esta registrado')
+  if (!elementExist.status) {
+    return alert('El nombre ya esta en la lista')
   }
 
   if (gameData === '' || downloadsData ==='') {
@@ -56,10 +55,10 @@ function newGame() {
 function existElment(value) {
   for (const i in table) {
     if (table[i].nombre === value) {
-      return false
+      return { status: false, position: i }
     }
   }
-  return true;
+  return { status: true, position: null };
 }
 
 function deleteRow(row) {
@@ -100,6 +99,11 @@ function saveData(place) {
   let newName = document.getElementById(`td-n${place}`).value;
   let newNumDowloads = document.getElementById(`td-d${place}`).value;
 
+  const elementExist = existElment(newName);
+
+  if (elementExist.position !== place) {
+    return alert('El nombre ya esta en la lista')
+  }
 
   if (newName === '' || newNumDowloads === '') {
     return alert('No puedes dejar los campos vacios')
