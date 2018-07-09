@@ -22,10 +22,10 @@ function showTable() {
   var tableBody = ''
 
   for (var i = 0; i < table.length; i++) {
-    tableBody += `<tr>
-                    <td id="td-name${i}">${table[i].nombre}</td>
-                    <td id="td-dowloads${i}">${table[i].descargas}</td>
-                    <td><button class="btn-edit btn btn-secondary">Editar</button></td>
+    tableBody += `<tr id="tr-${i}">
+                    <td id="td-n${i}">${table[i].nombre}</td>
+                    <td id="td-d${i}">${table[i].descargas}</td>
+                    <td><button class="btn-edit btn btn-secondary" value="${table[i].nombre}" onclick="editElment(this.value)">Editar</button></td>
                     <td><button class="btn-delete btn btn-secondary" value="${table[i].nombre}" onclick="deleteRow(this.value)">Eliminar</button></td>
                   <tr>`
   }
@@ -54,5 +54,42 @@ function deleteRow(row) {
       table.splice(i, 1);
     }
   }
+  showTable();
+}
+
+function editElment(value) {
+  var place;
+  var nameGame = value;
+  var dowloads;
+  for (const i in table) {
+    if (table[i].nombre === nameGame) {
+      place = i;
+      dowloads = table[i].descargas;
+    }
+  }
+  let trNum = document.getElementById(`tr-${place}`);
+  
+  var newTr = `<tr id="tr-${place}">
+                <td><input type="text" id="td-n${place}" value="${nameGame}"/></td>
+                <td><input type="text" id="td-d${place}" value="${dowloads}"/></td>
+                <td><button class="btn-save btn btn btn-primary" value="${place}" onclick="saveData(this.value)">Guardar</button></td>
+                <td><button class="btn-edit btn btn-secondary" disabled value="${nameGame}" onclick="editElment(this.value)">Editar</button></td>
+                <td><button class="btn-delete btn btn-secondary" disabled value="${nameGame}" onclick="deleteRow(this.value)">Eliminar</button></td>
+              <tr>`;
+
+  trNum.innerHTML = newTr;
+}
+
+function saveData(place) {
+
+  let newName = document.getElementById(`td-n${place}`).value;
+  let newNumDowloads = document.getElementById(`td-d${place}`).value;
+
+  if (newName === '' || newNumDowloads === '') {
+    return alert('No puedes dejar los campos vacios')
+  }
+
+  table[place].nombre = newName;
+  table[place].descargas = newNumDowloads;
   showTable();
 }

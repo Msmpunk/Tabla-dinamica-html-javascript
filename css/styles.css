@@ -1,20 +1,18 @@
 body{
-	background: #b38c7e;
+	background: #000000;
+	color: white;
+	text-align: center;
 }
 
 .container-div{
-	width: 500px;
-	margin: auto;
 	margin-top: 10em;
 	text-align: center;
 }
 .contenedor-form{
-	width: 500px;
-	margin: auto;
-	padding: 1em;
-	margin-top: 3em;
+	color: #000000;
 	background: #ddd;
-	border-radius: 5px
+	border-radius: 5px;
+	padding: 1em 3em;
 }
 
 .btn-show{
@@ -23,8 +21,6 @@ body{
 }
 .btn-option{
 	margin: auto;
-	/*width: 30%*/
-	/*background: green;*/
 }
 .btn-edit{
 	background: green;
@@ -38,12 +34,11 @@ body{
 
 .contenedor-table
 {
-	/*color:white;*/
-	width: 700px;
+	padding: 1em 3em;
 	margin: auto;
-	padding: 1em;
 	margin-top: 2em;
 	background: #ddd;
 	border-radius: 2px;
 	text-align: center;
+	color: #000000;
 }
