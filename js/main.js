@@ -37,6 +37,13 @@ function newGame() {
   var gameData = document.getElementById('game').value
   var downloadsData = document.getElementById('downloads').value
 
+  const elementExist = existElment(gameData);
+
+  console.log(elementExist);
+  if (!elementExist) {
+    return alert('El numero ya esta registrado')
+  }
+
   if (gameData === '' || downloadsData ==='') {
     alert('Por favor no dejes los campos vacios')
   } else {
@@ -46,6 +53,14 @@ function newGame() {
   }
 }
 
+function existElment(value) {
+  for (const i in table) {
+    if (table[i].nombre === value) {
+      return false
+    }
+  }
+  return true;
+}
 
 function deleteRow(row) {
 
@@ -84,6 +99,7 @@ function saveData(place) {
 
   let newName = document.getElementById(`td-n${place}`).value;
   let newNumDowloads = document.getElementById(`td-d${place}`).value;
+
 
   if (newName === '' || newNumDowloads === '') {
     return alert('No puedes dejar los campos vacios')
