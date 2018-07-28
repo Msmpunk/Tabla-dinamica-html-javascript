@@ -95,21 +95,28 @@ function editElment(value) {
 }
 
 function saveData(place) {
+  console.log(place)
 
   let newName = document.getElementById(`td-n${place}`).value;
   let newNumDowloads = document.getElementById(`td-d${place}`).value;
 
   const elementExist = existElment(newName);
 
-  if (elementExist.position !== place) {
-    return alert('El nombre ya esta en la lista')
-  }
-
   if (newName === '' || newNumDowloads === '') {
     return alert('No puedes dejar los campos vacios')
   }
 
-  table[place].nombre = newName;
-  table[place].descargas = newNumDowloads;
-  showTable();
+  if (elementExist.position === null) {
+    table[place].nombre = newName;
+    table[place].descargas = newNumDowloads;
+    return showTable();
+  }
+
+  if (elementExist.position === place) {
+    // table[place].nombre = newName;
+    // table[place].descargas = newNumDowloads;
+    return showTable();
+  }
+
+  return alert('El nombre ya esta en la lista')
 }
