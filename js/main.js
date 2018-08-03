@@ -1,9 +1,9 @@
 
 var table = [
-  {nombre: 'MK', descargas: 10},
-  {nombre: 'PACMAn', descargas: 16},
-  {nombre: 'POEMON', descargas: 18},
-  {nombre: 'DBZ', descargas: 17}
+  { nombre: 'MK', descargas: 10 },
+  { nombre: 'PACMAN', descargas: 16 },
+  { nombre: 'POKEMON', descargas: 18 },
+  { nombre: 'DBZ', descargas: 17 }
 
 ]
 
@@ -16,7 +16,7 @@ var table = [
 
 //   document.getElementById('new-information').addEventListener('submit', deleteRow, false)
 // }
-
+showTable()
 function showTable() {
   var tbody = document.getElementById('games-table');
   var tableBody = ''
@@ -95,10 +95,9 @@ function editElment(value) {
 }
 
 function saveData(place) {
-  console.log(place)
-
   let newName = document.getElementById(`td-n${place}`).value;
   let newNumDowloads = document.getElementById(`td-d${place}`).value;
+  console.log(newNumDowloads)
 
   const elementExist = existElment(newName);
 
@@ -113,8 +112,7 @@ function saveData(place) {
   }
 
   if (elementExist.position === place) {
-    // table[place].nombre = newName;
-    // table[place].descargas = newNumDowloads;
+    table[place].descargas = newNumDowloads;
     return showTable();
   }
 

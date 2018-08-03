@@ -2,11 +2,20 @@ body{
 	background: #000000;
 	color: white;
 	text-align: center;
-	padding: 1em;
+	padding: 0;
 }
-
+.nav-wrapper a{
+	color: black;
+}
+.tab a{
+	color: red;
+}
+.title-head {
+	font-family: 'Hanalei Fill', cursive;
+	margin-top: 1.2em
+}
 .container-div{
-	margin-top: 10em;
+	margin-top: 3em;
 	text-align: center;
 }
 .contenedor-form{
