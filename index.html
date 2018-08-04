@@ -9,23 +9,26 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
-		<nav>
-			<div class="nav-wrapper amber lighten-2">
-				<a href="#" class="brand-logo">My single page</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="">Proyectos</a></li>
-					<li><a href="">Blog</a></li>
-					<li><a href="">JavaScript</a></li>
-				</ul>
+		<nav class="amber lighten-2">
+			<div class="nav-wrapper">
+				<div class="container">
+					<a class="brand-logo center">Mario Del Toro</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="">Proyectos</a></li>
+						<li><a href="">Blog</a></li>
+						<li><a href="">JavaScript</a></li>
+					</ul>
+				</div>
 			</div>
 			<div class="nav-content">
-				<ul class="tabs tabs-transparent">
-					<li class="tab"><a class="active" href="#test1">REGISTRO DE JUEGOS</a></li>
-					<li class="tab"><a href="#test2">GENERAR PASSWORD ALEATORIA</a></li>
-				</ul>
+				<div class="container">
+						<ul class="tabs tabs-transparent">
+								<li class="tab"><a class="active" href="#test1">REGISTRO DE JUEGOS</a></li>
+								<li class="tab"><a href="#test2">GENERAR PASSWORD ALEATORIA</a></li>
+							</ul>
+				</div>
 			</div>
 		</nav>
-
 		<h1 class="title-head">Registro de juegos</h1>
 
 		<div class="container-div container">
@@ -36,14 +39,14 @@
 				</div>
 				<div class="form-group">
 					<label for="formGroupExampleInput2">Descargas</label>
-					<input type="text" class="form-control" id="downloads" >
+					<input type="text" onkeypress="return number(event)" class="form-control" id="downloads" >
 				</div>
 				<button id="new-information" type="submit" class=" btn-option btn btn-secondary" onclick="newGame()">Guardar Reguistro</button>
 			</form>
 		</div>
 
 		<div class="contenedor-table container">
-			<table class="responsive-table" id="table">
+			<table class="highlight responsive-table" id="table">
 				<thead>
 					<tr>
 						<th>Juegos</th>
