@@ -6,7 +6,6 @@ let table = [
   { nombre: 'DBZ', descargas: 17 }
 ]
 let saveStatuss = true;
-
 showTable();
 
 function showTable() {
@@ -19,12 +18,13 @@ function showTable() {
                   <td></td>
                 <tr>`
   }else{
-    for (let i = 0; i < table.length; i++) {
+    const newTable = table.sort(compare)
+    for (let i = 0; i < newTable.length; i++) {
       tableBody += `<tr id="tr-${i}">
-                      <td id="td-n${i}">${table[i].nombre}</td>
-                      <td id="td-d${i}">${table[i].descargas}</td>
-                      <td><button class="btn-edit btn btn-secondary" value="${table[i].nombre}" onclick="editElment(this.value)">Editar</button></td>
-                      <td><button class="btn-delete btn btn-secondary" value="${table[i].nombre}" onclick="deleteRow(this.value)">Eliminar</button></td>
+                      <td id="td-n${i}">${newTable[i].nombre}</td>
+                      <td id="td-d${i}">${newTable[i].descargas}</td>
+                      <td><button class="btn-edit btn btn-secondary" value="${newTable[i].nombre}" onclick="editElment(this.value)">Editar</button></td>
+                      <td><button class="btn-delete btn btn-secondary" value="${newTable[i].nombre}" onclick="deleteRow(this.value)">Eliminar</button></td>
                     <tr>`
     }
   }    
@@ -46,7 +46,7 @@ function newGame() {
   if (gameData === '' || downloadsData ==='') {
     alert('Por favor no dejes los campos vacios')
   } else {
-    let newGame = {nombre: gameData, descargas: downloadsData}
+    let newGame = {nombre: gameData, descargas: parseInt( downloadsData)}
     table.push(newGame)
     showTable();
   }
@@ -128,4 +128,18 @@ function number(e) {
    if (charCode > 31 && (charCode < 48 || charCode > 57))
       return false;
    return true;
+}
+
+function compare(a, b) {
+  const game1 = parseInt( a.descargas );  
+  const game2 = parseInt( b.descargas );
+
+  let comparison = 0;
+  
+  if (game1 < game2) {
+    comparison = 1;
+  } else if (game1 < game2) {
+    comparison = -1;
+  }
+  return comparison;
 }
